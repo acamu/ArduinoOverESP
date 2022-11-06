@@ -18,16 +18,17 @@
 	#define DEVICEID	Unknown
 #endif
 
+#include <AbstractPubSub.h>
 
 #define CMD_FLASH_START			0x46		// 'F'
-#define OK						"OK"
+#define OK				"OK"
 #define WARNING_STK_FAILED		"[WARNING] STK FAILED"
 #define FLASH_FAILED			"[FAILED] FLASHING FAILED"
 #define TIMEOUT					1000UL
 
-class ArduinoOTAFirmwareUpdater {
+class ArduinoOTAFirmwareUpdater: virtual public AbstractPubSub  {
 	public: 
-		ArduinoOTAFirmwareUpdater(WiFiClient *wifi_client, uint8_t reset_pin, int8_t ind_LED=-1) { 
+		ArduinoOTAFirmwareUpdater(WiFiClient *wifi_client, uint8_t reset_pin, int8_t ind_LED=-1): AbstractPubSub(wifi_client, reset_pin, ind_LED), PubSubClient(*wifi_client) { 
 			_appLoop = ([this] () { this->_setStartFlashTimeout(); });
 		}
 	
@@ -41,7 +42,7 @@ class ArduinoOTAFirmwareUpdater {
 		
 		void _startFlashing(byte *payload, uint32_t length);
 		void _setStartFlashTimeout();
-
+                //void _callback(char *topic, byte *payload, uint32_t length);
 		bool _waitOptibootRes_1s();
 		void _getSync();
 		bool _sendHex(const uint8_t *hex, uint8_t len);
