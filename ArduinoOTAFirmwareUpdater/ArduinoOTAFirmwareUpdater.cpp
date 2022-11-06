@@ -60,7 +60,7 @@ bool ArduinoOTAFirmwareUpdater::_sendHex(const uint8_t *hex, uint8_t len) {		// 
 	if(_waitOptibootRes_1s()) {
 		if(_hex_size) {
 			_addr += (len >> 1);
-			publish(_tx_topic, OK);
+			//publish(_tx_topic, OK);
 		} else {
 			Serial.write(0x51);
 			Serial.write(0x20);
