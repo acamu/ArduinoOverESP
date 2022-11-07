@@ -27,6 +27,9 @@
 #define	DEFAULT_BAUDRATE		115200UL
 #define	CMD_UPDATE_BAUDRATE		0x55	// 'U'
 
+#define HELPER_STR(X)          	#X
+#define STR(X)         			HELPER_STR(X)
+
 
 class ArduinoOTAFirmwareUpdater {
 	public: 
