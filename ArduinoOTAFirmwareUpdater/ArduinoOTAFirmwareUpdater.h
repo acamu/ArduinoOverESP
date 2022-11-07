@@ -10,7 +10,7 @@
 #ifndef	ArduinoOTAFirmwareUpdater_H
 #define	ArduinoOTAFirmwareUpdater_H
 #include "Arduino.h"
-#endif
+
 
 #ifndef	EXTRA_FUNC_CALL_FLAG
 	#define	EXTRA_FUNC_CALL_FLAG
