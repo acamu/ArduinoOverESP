@@ -58,6 +58,7 @@ class ArduinoOTAFirmwareUpdater {
 		void _startFlashing(byte *payload, uint32_t length);
 		void _setStartFlashTimeout();
         //void _callback(char *topic, byte *payload, uint32_t length);
+		void clientFlashArduino(byte *payload, uint32_t length);
 		bool _waitOptibootRes_1s();
 		void _getSync();
 		bool _sendHex(const uint8_t *hex, uint8_t len);
