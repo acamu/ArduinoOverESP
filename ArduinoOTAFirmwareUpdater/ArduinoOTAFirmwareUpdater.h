@@ -41,6 +41,8 @@ class ArduinoOTAFirmwareUpdater {
 		}
 	
 	protected:
+
+	    const char *_client_id;
 		uint16_t _addr;
 		uint32_t _hex_size;
 		uint32_t _hex_size_copy;
