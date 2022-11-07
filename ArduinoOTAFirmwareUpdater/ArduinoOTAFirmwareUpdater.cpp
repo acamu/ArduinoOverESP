@@ -130,7 +130,7 @@ void ArduinoOTAFirmwareUpdater::_callback(char *topic, byte *payload, uint32_t l
 }
 
 void ArduinoOTAFirmwareUpdater::clientFlashArduino(byte *payload, uint32_t length) {
-if(_is_flashing) {
+	if(_is_flashing) {
 		_is_flashing = _sendHex((uint8_t *)payload, (uint8_t)length);
 	} else {
 		byte cmd = payload[0];
